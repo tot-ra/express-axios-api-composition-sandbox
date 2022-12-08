@@ -1,8 +1,16 @@
 # express-axios-api-composition-sandbox
 An express app with internal request emulation using nock + API composition and axios retry logic.
+<img src="https://user-images.githubusercontent.com/445122/206505739-f2bba1af-9e30-4424-a06a-ee17d6126cb0.png" width="500">
 
-![Screenshot_20221208_180657](https://user-images.githubusercontent.com/445122/206505739-f2bba1af-9e30-4424-a06a-ee17d6126cb0.png)
 
+## Architecture
+
+```mermaid
+flowchart LR
+    client --"GET /api/sessions/:sessionId" --> express-axios-api-composition-sandbox
+    express-axios-api-composition-sandbox --"GET /sessions/:sessionId/media"--> externalService
+    express-axios-api-composition-sandbox --"GET /media-context/:sessionId"--> externalService
+```
 
 ### Installation
 ```sh
@@ -19,9 +27,15 @@ npm start
 ```
 
 ### Testing
-#### Functional
+#### Unit
 ```sh
-npm test
+npm run test:unit
+```
+
+#### Functional
+You need to have app running
+```sh
+npm test:functional
 ```
 
 ### Specification
