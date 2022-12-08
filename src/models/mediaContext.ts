@@ -1,4 +1,5 @@
-import axios from "axios";
+import { retriableHttpRequest } from "../httpService";
+
 type UUID = string;
 
 type MediaContext = {
@@ -22,19 +23,23 @@ export type ApiGetSessionResponse = {
 export async function getMergedMediaContext(
   sessionId: string
 ): Promise<ApiGetSessionResponse> {
-  const [media, context] = await Promise.all([
+  const [media, mediaContext] = await Promise.all([
     //axios.get(`https://api.veriff.internal/sessions/${sessionId}`),
-    axios.get(`https://api.veriff.internal/sessions/${sessionId}/media`),
-    axios.get(`https://api.veriff.internal/media-context/${sessionId}`),
+    retriableHttpRequest({
+        url: `https://api.veriff.internal/sessions/${sessionId}/media`,
+    }),
+    retriableHttpRequest({
+        url: `https://api.veriff.internal/media-context/${sessionId}`,
+    }),
   ]);
 
   const mediaSet: Map<string, Media> = new Map();
 
-  for (const row of media.data as Media[]) {
+  for (const row of media as Media[]) {
     mediaSet.set(row.id, row);
   }
 
-  const filteredData = (context.data as MediaContext[])
+  const filteredData = (mediaContext as MediaContext[])
     .filter((obj) => obj.context !== "none")
     .sort((a, b) => b.probability - a.probability)
     .map((row: MediaContext) => {
