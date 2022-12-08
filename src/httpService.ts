@@ -7,9 +7,8 @@ export async function retriableHttpRequest(
 ): Promise<any> {
   return new Promise(async (resolve, reject) => {
     let retries = 0;
-    let success = false;
 
-    while (retries < maxRetries && !success) {
+    while (retries < maxRetries) {
       try {
         let timeoutMs = options.timeout ? options.timeout : 1000;
         timeoutMs = doubleTimeoutOnRetry
@@ -20,14 +19,12 @@ export async function retriableHttpRequest(
           ...options,
           timeout: timeoutMs,
         });
-        success = true;
-        resolve(response.data);
+        return resolve(response.data);
       } catch (err: any) {
-        const status = err?.response?.status || 500;
-        console.error(`Error Status: ${status}`);
+        //console.log(err.message);
       }
       retries++;
     }
-    reject(`Too many request retries.`);
+    return reject(`Too many request retries.`);
   });
 }

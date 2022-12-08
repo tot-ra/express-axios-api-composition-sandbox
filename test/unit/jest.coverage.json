@@ -1,5 +1,7 @@
 {
   "rootDir": "../../",
+  "resetMocks": true,
+  "restoreMocks": true,
   "transform": {
     "^.+\\.(ts)$": ["ts-jest", {
       "tsconfig": "./config/tsconfig.test.json"
