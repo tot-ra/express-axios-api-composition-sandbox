@@ -1,0 +1,18 @@
+{
+  "rootDir": "../../",
+  "transform": {
+    "^.+\\.(ts)$": ["ts-jest", {
+      "tsconfig": "./config/tsconfig.test.json"
+    }]
+  },
+  "testMatch": [
+    "<rootDir>/src/**/*.test.(ts|js)"
+  ],
+  "coverageDirectory": "coverage",
+  "coverageReporters": ["text", "json", "lcov", "clover"],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "<rootDir>/src/**/*.ts", 
+    "!<rootDir>/src/*/*.test.ts"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "rootDir": "../",
+  "rootDir": "../../",
   "globals": {
     "ts-jest": {
       "tsconfig": "./config/tsconfig.test.json"
@@ -9,7 +9,6 @@
     "^.+\\.(ts)$": "ts-jest"
   },
   "testMatch": [
-    "**/test/**/*.spec.(ts|js)",
-    "<rootDir>/src/*.test.(ts|js)"
+    "<rootDir>/**/test/**/*.spec.(ts|js)"
   ]
 }

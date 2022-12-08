@@ -9,7 +9,9 @@
   },
   "scripts": {
     "build": "tsc -p ./config/tsconfig.json",
-    "test": "jest --config ./test/jest.json",
+    "test": "npm run test:unit && npm run test:functional",
+    "test:functional": "jest --config ./test/functional/jest.json",
+    "test:unit": "jest --config ./test/unit/jest.coverage.json",
     "start": "tsc-watch -p ./config/tsconfig.json --onSuccess \"node dist/index.js\""
   },
   "repository": {

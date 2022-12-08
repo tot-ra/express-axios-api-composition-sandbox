@@ -28,7 +28,6 @@ export async function retriableHttpRequest(
       }
       retries++;
     }
-    console.log(`Too many request retries.`);
-    reject();
+    reject(`Too many request retries.`);
   });
 }
