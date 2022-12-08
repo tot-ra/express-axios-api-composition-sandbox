@@ -9,6 +9,7 @@
     "^.+\\.(ts)$": "ts-jest"
   },
   "testMatch": [
-    "**/test/**/*.spec.(ts|js)"
+    "**/test/**/*.spec.(ts|js)",
+    "<rootDir>/src/*.test.(ts|js)"
   ]
 }
