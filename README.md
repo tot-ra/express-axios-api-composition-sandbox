@@ -1,6 +1,9 @@
 # express-axios-api-composition-sandbox
 An express app with internal request emulation using nock + API composition and axios retry logic.
 
+![Screenshot_20221208_180657](https://user-images.githubusercontent.com/445122/206505739-f2bba1af-9e30-4424-a06a-ee17d6126cb0.png)
+
+
 ### Installation
 ```sh
 npm install
@@ -28,13 +31,13 @@ and media with combined details relevant to the consumer of the API.
 
 The structure of the RESTful GET endpoint would be defined by you, but it should meet the following criteria:
 
-✅. Fix the media context in the response using `/sessions/:sessionId/media` and `/media-context/:sessionId` endpoints to have only relevant and corrected media as a result
+✅ Fix the media context in the response using `/sessions/:sessionId/media` and `/media-context/:sessionId` endpoints to have only relevant and corrected media as a result
 
-✅. Group media by the context type
+✅ Group media by the context type
 
-✅. Irrelevant media must be filtered out
+✅ Irrelevant media must be filtered out
 
-✅. Media list must be sorted by probability descending
+✅ Media list must be sorted by probability descending
 
-✅. Implement at least one test, which must pass on every run
+✅ Implement at least one test, which must pass on every run
 
