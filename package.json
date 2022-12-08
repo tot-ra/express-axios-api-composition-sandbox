@@ -4,6 +4,7 @@
   "description": "JS BE/FS test task",
   "main": "dist/index.js",
   "scripts": {
+    "build": "tsc -p ./config/tsconfig.json",
     "test": "jest --config ./test/jest.json",
     "start": "tsc-watch -p ./config/tsconfig.json --onSuccess \"node dist/index.js\""
   },

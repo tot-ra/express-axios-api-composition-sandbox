@@ -1,0 +1,10 @@
+version: '3'
+services:
+  express-axios-api-composition-sandbox:
+    image: node:16-alpine
+    command: node /app/dist/index.js
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app/
+    restart: always

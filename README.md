@@ -1,5 +1,25 @@
 # express-axios-api-composition-sandbox
+An express app with internal request emulation using nock + API composition and axios retry logic.
 
+### Installation
+```sh
+npm install
+npm run build
+docker compose up
+open http://localhost:3000/api/sessions/90d61876-b99a-443e-994c-ba882c8558b6
+```
+
+### Development
+```sh
+npm install
+npm start
+```
+
+### Testing
+#### Functional
+```sh
+npm test
+```
 
 ### Specification
 
@@ -16,19 +36,5 @@ The structure of the RESTful GET endpoint would be defined by you, but it should
 
 ✅. Media list must be sorted by probability descending
 
-5. Implement at least one test, which must pass on every run
+✅. Implement at least one test, which must pass on every run
 
-
-### Usage
-http://localhost:3000/api/sessions/90d61876-b99a-443e-994c-ba882c8558b6
-
-### Installation
-```sh
-npm install
-npm start
-```
-   
-### Testing
-```sh
-npm test
-```
